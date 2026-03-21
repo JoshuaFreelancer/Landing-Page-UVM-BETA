@@ -1,55 +1,127 @@
 <?php
-// Establece la configuración de la base de datos
-require_once("config.php"); // Archivo requerido para obtener las credenciales
+declare(strict_types=1);
 
-// Crea una conexión a la base de datos utilizando la configuración anterior
-$conexion = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+require_once("config.php");
 
-// Verifica si la conexión a la base de datos es exitosa
-if ($conexion->connect_error) {
-    // Si no se puede establecer la conexión, muestra un mensaje de error y termina el script
-    die("Error de conexión: " . $conexion->connect_error);
+header("Content-Type: application/json; charset=utf-8");
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+    echo json_encode([
+        "success" => false,
+        "message" => "Metodo no permitido.",
+    ]);
+    exit;
 }
 
-// Obtiene los valores del formulario enviados a través del método POST
-$nombre = $_POST["nombre"];
-$correo = $_POST["correo"];
-$ciudad = $_POST["ciudad"];
-$telefono = $_POST["telefono"];
-$comentarios = $_POST["comentarios"];
-
-// Verifica si los datos ya existen en la base de datos
-$consulta_existencia = "SELECT * FROM datos_formulario WHERE nombre_completo = ? AND correo_electronico = ?";
-$sentencia_existencia = $conexion->prepare($consulta_existencia);
-$sentencia_existencia->bind_param("ss", $nombre, $correo);
-$sentencia_existencia->execute();
-$sentencia_existencia->store_result();
-
-if ($sentencia_existencia->num_rows > 0) {
-    // Si se encuentran registros coincidentes, muestra un mensaje informando que los datos ya existen
-    echo "Los datos ya existen en la base de datos. No se pueden insertar duplicados.";
-} else {
-    // Si no se encuentran registros coincidentes, procede a insertar los datos en la base de datos
-    $consulta = "INSERT INTO datos_formulario (nombre_completo, correo_electronico, ciudad, telefono, comentarios) VALUES (?, ?, ?, ?, ?)";
-    $sentencia = $conexion->prepare($consulta);
-
-    if ($sentencia === false) {
-        // Si hay un error en la preparación de la consulta, muestra un mensaje de error y termina el script
-        die("Error en la preparación de la consulta: " . $conexion->error);
-    }
-
-    // Vincula los parámetros con los valores del formulario
-    $sentencia->bind_param("sssss", $nombre, $correo, $ciudad, $telefono, $comentarios);
-
-    if ($sentencia->execute()) {
-        // Si la inserción de datos es exitosa, muestra un mensaje de éxito
-        echo "Los datos se han almacenado correctamente. ¡Gracias!";
-    } else {
-        // Si hay un error en la inserción de datos, muestra un mensaje de error
-        echo "Error al almacenar los datos. Intente nuevamente: " . $sentencia->error;
-    }
+function cleanString(mixed $value): string
+{
+    return trim((string) $value);
 }
 
-// Cierra la conexión a la base de datos
-$conexion->close();
-?>
+function getPayload(): array
+{
+    $contentType = $_SERVER["CONTENT_TYPE"] ?? "";
+    if (stripos($contentType, "application/json") !== false) {
+        $rawData = file_get_contents("php://input") ?: "";
+        $decoded = json_decode($rawData, true);
+        return is_array($decoded) ? $decoded : [];
+    }
+
+    return $_POST;
+}
+
+function validateLead(array $data): array
+{
+    $nombre = cleanString($data["nombre"] ?? "");
+    $correo = cleanString($data["correo"] ?? "");
+    $ciudad = cleanString($data["ciudad"] ?? "");
+    $telefono = cleanString($data["telefono"] ?? "");
+    $comentarios = cleanString($data["comentarios"] ?? "");
+
+    if ($nombre === "" || !preg_match('/^[A-Za-zÀ-ÿ\s]{3,80}$/u', $nombre)) {
+        return ["error" => "Nombre invalido."];
+    }
+
+    if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        return ["error" => "Correo electronico invalido."];
+    }
+
+    if ($ciudad === "" || !preg_match('/^[A-Za-zÀ-ÿ\s]{2,80}$/u', $ciudad)) {
+        return ["error" => "Ciudad invalida."];
+    }
+
+    if ($telefono === "" || !preg_match('/^\+?[0-9\s\-()]{7,20}$/', $telefono)) {
+        return ["error" => "Telefono invalido."];
+    }
+
+    if (strlen($comentarios) > 500) {
+        return ["error" => "Comentarios exceden el limite permitido."];
+    }
+
+    return [
+        "nombre" => $nombre,
+        "correo" => $correo,
+        "ciudad" => $ciudad,
+        "telefono" => $telefono,
+        "comentarios" => $comentarios,
+    ];
+}
+
+$payload = getPayload();
+$validated = validateLead($payload);
+
+if (isset($validated["error"])) {
+    http_response_code(422);
+    echo json_encode([
+        "success" => false,
+        "message" => $validated["error"],
+    ]);
+    exit;
+}
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+try {
+    $conexion = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+    $conexion->set_charset("utf8mb4");
+
+    $consultaExistencia = "SELECT id FROM datos_formulario WHERE correo_electronico = ? LIMIT 1";
+    $sentenciaExistencia = $conexion->prepare($consultaExistencia);
+    $sentenciaExistencia->bind_param("s", $validated["correo"]);
+    $sentenciaExistencia->execute();
+    $resultadoExistencia = $sentenciaExistencia->get_result();
+
+    if ($resultadoExistencia && $resultadoExistencia->num_rows > 0) {
+        http_response_code(409);
+        echo json_encode([
+            "success" => false,
+            "message" => "Ya existe una solicitud registrada con ese correo.",
+        ]);
+        exit;
+    }
+
+    $consultaInsert = "INSERT INTO datos_formulario (nombre_completo, correo_electronico, ciudad, telefono, comentarios) VALUES (?, ?, ?, ?, ?)";
+    $sentenciaInsert = $conexion->prepare($consultaInsert);
+    $sentenciaInsert->bind_param(
+        "sssss",
+        $validated["nombre"],
+        $validated["correo"],
+        $validated["ciudad"],
+        $validated["telefono"],
+        $validated["comentarios"]
+    );
+    $sentenciaInsert->execute();
+
+    http_response_code(201);
+    echo json_encode([
+        "success" => true,
+        "message" => "Solicitud recibida con exito.",
+    ]);
+} catch (Throwable $exception) {
+    http_response_code(500);
+    echo json_encode([
+        "success" => false,
+        "message" => "No fue posible registrar la solicitud en este momento.",
+    ]);
+}

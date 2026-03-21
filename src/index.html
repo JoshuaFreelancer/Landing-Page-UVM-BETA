@@ -1,268 +1,357 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>UVM</title>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="Bienvenido a la Universidad Valle del Momboy (UVM). Ofrecemos formación académica de calidad en diversas disciplinas con un enfoque en el desarrollo humano sustentable."
-    />
-    <meta
-      name="keywords"
-      content="Universidad Valle del Momboy, UVM, educación superior, carreras, ingeniería en computación, derecho, administración de empresas"
-    />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="UVM impulsa tu futuro profesional con carreras de alto impacto y una formación integral orientada al desarrollo humano sustentable."
+        />
+        <meta
+            name="keywords"
+            content="UVM, Universidad Valle del Momboy, preinscripcion universitaria, carreras universitarias"
+        />
+        <title>UVM | Tu Futuro Empieza Hoy</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="assets/img/Logo UVM.png" type="image/x-icon" />
+    </head>
+    <body>
+        <header class="site-header" id="inicio">
+            <div class="hero-overlay"></div>
+            <nav class="navbar container" aria-label="Navegacion principal">
+                <a class="brand" href="#inicio" aria-label="Inicio UVM">
+                    <img src="assets/img/Logo UVM.png" alt="Logo UVM" />
+                    <span>UVM</span>
+                </a>
 
-    <meta http-equiv="content-language" content="es" />
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="main-menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap"
-      rel="stylesheet"
-    />
+                <ul class="menu" id="main-menu">
+                    <li><a href="#valor">Propuesta de valor</a></li>
+                    <li><a href="#carreras">Carreras</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li>
+                        <a href="#contacto" class="btn btn-nav" data-ab="navCta" data-track="cta-nav">
+                            Reserva tu cupo
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link rel="icon" href="assets/img/Logo UVM.png" type="image/x-icon" />
-    <script
-      src="https://kit.fontawesome.com/04e0763c43.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-
-  <body>
-    <header>
-        <!-- Cabecera e Introducción -->
-        <nav class="barra-navegacion" aria-label="Menú de navegación principal">
-          <input type="checkbox" id="menu" class="menu-toggle" />
-          <label for="menu" class="hamburger">☰</label>
-            <ul class="nav-list">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#acerca-de">Acerca de</a></li>
-                <li><a href="#docentes">Docentes</a></li>
-                <li><a href="#cursos">Carreras</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-
-        <!-- Sección de cabecera principal -->
-        <section id="inicio" class="contenedor-header">
-            <h1>¡Bienvenido a la Universidad Valle del Momboy (UVM)!</h1>
-            <h2>- El Futuro que sueñas -</h2>
-        </section>
-    </header>
-
-    <!-- Sección de Acerca de -->
-    <section id="acerca-de" class="contenedor-acerca-de">
-      <div class="contenedor">
-        <h2 class="titulo">Acerca de la UVM</h2>
-        <div class="contenido-acerca-de">
-          <!-- Misión -->
-          <div class="contenido-individual-acerca-de">
-            <div class="imagen-container">
-              <img src="assets/img/mision.jpg" alt="Imagen de Misión">
-              <div class="texto-container">
-                <h3>Misión</h3>
-                <p>
-                  Promover con ética y calidad procesos de relevancia que propicien el Desarrollo Humano Sustentable, mediante la
-                  formación integral de personas altamente participativas, competentes y emprendedoras; la investigación con pertinencia
-                  social y la interacción activa con el entorno.
+            <section class="hero container">
+                <p class="hero-kicker" data-ab="kicker">Inscripciones 2026 abiertas</p>
+                <h1 data-ab="headline">Construye una carrera con futuro desde hoy en UVM</h1>
+                <p class="hero-copy" data-ab="copy">
+                    En la Universidad Valle del Momboy te formamos para liderar, innovar y
+                    transformar tu entorno con una educacion humana, practica y de
+                    vanguardia.
                 </p>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Visión -->
-          <div class="contenido-individual-acerca-de">
-            <div class="imagen-container">
-              <img src="assets/img/vision.jpg" alt="Imagen de Visión">
-              <div class="texto-container">
-                <h3>Visión</h3>
-                <p>
-                  Nuestra misión es proporcionar a nuestros estudiantes una educación que no solo enriquezca sus conocimientos y habilidades,
-                  sino que también fomente un profundo sentido de responsabilidad hacia el medio ambiente y la sociedad en general. Creemos en
-                  la importancia de formar ciudadanos conscientes y comprometidos con la sostenibilidad.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                <div class="hero-cta-group">
+                    <a href="#contacto" class="btn btn-primary" data-ab="primaryCta" data-track="cta-hero-primary">
+                        Solicitar informacion
+                    </a>
+                    <a href="#carreras" class="btn btn-secondary" data-ab="secondaryCta" data-track="cta-hero-secondary">
+                        Ver carreras
+                    </a>
+                </div>
+                <ul class="hero-trust-metrics" aria-label="Indicadores de confianza UVM">
+                    <li><strong>+30</strong> anos formando profesionales</li>
+                    <li><strong>+50k</strong> egresados en Venezuela</li>
+                    <li><strong>95%</strong> de satisfaccion estudiantil</li>
+                </ul>
+            </section>
+        </header>
 
-    <!-- Sección de Docentes -->
-    <section id="docentes" class="contenedor-profesores">
-        <div class="contenedor">
-            <h2 class="titulo">Qué dicen nuestros docentes</h2>
-            <!-- Cartas de los profesores -->
-            <div class="cartas-profesor">
-                <div class="carta-individual">
-                    <img src="assets/img/profesor1.jpg" alt="Foto de Roberto" />
-                    <div class="contenido-texto-carta">
-                        <h4>Roberto</h4>
-                        <p>Aprende, no para acumular conocimientos como un tesoro personal, sino para emplear lo aprendido al servicio del mundo.</p>
+        <main>
+            <section class="value section" id="valor">
+                <div class="container">
+                    <header class="section-heading reveal-on-scroll">
+                        <p class="section-tag">Por que elegir UVM</p>
+                        <h2>Formacion academica moderna con resultados profesionales</h2>
+                    </header>
+
+                    <div class="value-grid">
+                        <article class="value-card reveal-on-scroll">
+                            <h3>Modelo educativo integral</h3>
+                            <p>
+                                Aprende con metodologias activas, desarrollo de habilidades
+                                blandas y enfoque en empleabilidad.
+                            </p>
+                        </article>
+
+                        <article class="value-card reveal-on-scroll">
+                            <h3>Docentes con experiencia real</h3>
+                            <p>
+                                Tu formacion esta guiada por profesionales en ejercicio y
+                                especialistas del sector.
+                            </p>
+                        </article>
+
+                        <article class="value-card reveal-on-scroll">
+                            <h3>Comunidad y oportunidades</h3>
+                            <p>
+                                Conecta con una red de estudiantes y egresados para potenciar tu
+                                crecimiento profesional.
+                            </p>
+                        </article>
                     </div>
                 </div>
+            </section>
 
-                <div class="carta-individual">
-                    <img src="assets/img/profesor3.avif" alt="Foto de Luis" />
-                    <div class="contenido-texto-carta">
-                        <h4>Luis</h4>
-                        <p>El buen maestro hace que el mal estudiante se convierta en bueno y el buen estudiante en superior.</p>
+            <section class="programs section" id="carreras">
+                <div class="container">
+                    <header class="section-heading reveal-on-scroll">
+                        <p class="section-tag">Oferta academica</p>
+                        <h2>Elige la carrera que impulsa tu proyecto de vida</h2>
+                    </header>
+
+                    <div class="program-carousel" aria-live="polite">
+                        <div class="program-track" data-carousel-track>
+                            <article class="program-slide" data-slide>
+                                <img
+                                    src="assets/img/carrousel1.jpg"
+                                    alt="Estudiantes de Ingenieria en Computacion"
+                                />
+                                <div class="program-info">
+                                    <h3>Ingenieria en Computacion</h3>
+                                    <p>
+                                        Disena software, integra inteligencia artificial y lidera
+                                        proyectos tecnologicos para el mundo actual.
+                                    </p>
+                                    <a href="#contacto" class="btn btn-tertiary" data-track="cta-programa-computacion"
+                                        >Quiero esta carrera</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article class="program-slide" data-slide>
+                                <img src="assets/img/carrousel2.jpg" alt="Clase de Derecho" />
+                                <div class="program-info">
+                                    <h3>Derecho</h3>
+                                    <p>
+                                        Formate para defender derechos, resolver conflictos y crear
+                                        impacto en el sistema juridico.
+                                    </p>
+                                    <a href="#contacto" class="btn btn-tertiary" data-track="cta-programa-derecho"
+                                        >Quiero esta carrera</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article class="program-slide" data-slide>
+                                <img
+                                    src="assets/img/carrousel3.jpg"
+                                    alt="Estudiantes de Administracion de Empresas"
+                                />
+                                <div class="program-info">
+                                    <h3>Administracion de Empresas</h3>
+                                    <p>
+                                        Aprende direccion estrategica, liderazgo y gestion para crear
+                                        y escalar negocios competitivos.
+                                    </p>
+                                    <a href="#contacto" class="btn btn-tertiary" data-track="cta-programa-admin"
+                                        >Quiero esta carrera</a
+                                    >
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-prev>
+                                Anterior
+                            </button>
+                            <button type="button" class="carousel-btn" data-next>
+                                Siguiente
+                            </button>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="carta-individual">
-                    <img src="assets/img/profesor2.webp" alt="Foto de Xavier" />
-                    <div class="contenido-texto-carta">
-                        <h4>Xavier</h4>
-                        <p>La humanidad no es mala, solo está... Desinformada.</p>
+            <section class="testimonials section" id="testimonios">
+                <div class="container">
+                    <header class="section-heading reveal-on-scroll">
+                        <p class="section-tag">Voces de confianza</p>
+                        <h2>Docentes que inspiran excelencia</h2>
+                    </header>
+
+                    <div class="testimonials-grid">
+                        <article class="testimonial-card reveal-on-scroll">
+                            <img src="assets/img/profesor1.jpg" alt="Docente Roberto" />
+                            <h3>Roberto</h3>
+                            <p>
+                                Aprende para transformar tu entorno con criterio, servicio y
+                                vision de futuro.
+                            </p>
+                        </article>
+
+                        <article class="testimonial-card reveal-on-scroll">
+                            <img src="assets/img/profesor3.avif" alt="Docente Luis" />
+                            <h3>Luis</h3>
+                            <p>
+                                Un gran docente convierte el talento en disciplina y la disciplina
+                                en liderazgo.
+                            </p>
+                        </article>
+
+                        <article class="testimonial-card reveal-on-scroll">
+                            <img src="assets/img/profesor2.webp" alt="Docente Xavier" />
+                            <h3>Xavier</h3>
+                            <p>
+                                El conocimiento correcto en el momento correcto cambia vidas para
+                                siempre.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about section" id="acerca-de">
+                <div class="container about-grid">
+                    <article class="about-card reveal-on-scroll">
+                        <img src="assets/img/mision.jpg" alt="Representacion visual de la mision UVM" />
+                        <div>
+                            <h2>Mision</h2>
+                            <p>
+                                Promover con etica y calidad procesos de relevancia que propicien
+                                el desarrollo humano sustentable mediante formacion integral,
+                                investigacion con pertinencia social e interaccion activa con el
+                                entorno.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="about-card reveal-on-scroll">
+                        <img src="assets/img/vision.jpg" alt="Representacion visual de la vision UVM" />
+                        <div>
+                            <h2>Vision</h2>
+                            <p>
+                                Ser referente de educacion superior por su impacto academico,
+                                social y sostenible, formando ciudadanos competentes y
+                                comprometidos con el progreso del pais.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="lead section" id="contacto">
+                <div class="container lead-grid">
+                    <div class="lead-copy reveal-on-scroll">
+                        <p class="section-tag">Da el siguiente paso</p>
+                        <h2>Solicita informacion y recibe orientacion personalizada</h2>
+                        <p>
+                            Completa tu preinscripcion en menos de 2 minutos. Nuestro equipo
+                            academico te contactara para guiarte en el proceso.
+                        </p>
+                        <ul>
+                            <li>Respuesta en menos de 24 horas</li>
+                            <li>Asesoria para elegir carrera</li>
+                            <li>Proceso de admision acompanado</li>
+                        </ul>
+                    </div>
+
+                    <form
+                        class="lead-form reveal-on-scroll"
+                        id="lead-form"
+                        action="database.php"
+                        method="post"
+                        novalidate
+                    >
+                        <h3>Formulario de preinscripcion</h3>
+
+                        <label for="nombre">Nombre completo</label>
+                        <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+                        <small class="field-error" data-error-for="nombre"></small>
+
+                        <label for="correo">Correo electronico</label>
+                        <input id="correo" name="correo" type="email" autocomplete="email" required />
+                        <small class="field-error" data-error-for="correo"></small>
+
+                        <label for="ciudad">Ciudad</label>
+                        <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" required />
+                        <small class="field-error" data-error-for="ciudad"></small>
+
+                        <label for="telefono">Telefono</label>
+                        <input id="telefono" name="telefono" type="tel" autocomplete="tel" required />
+                        <small class="field-error" data-error-for="telefono"></small>
+
+                        <label for="comentarios">Comentarios (opcional)</label>
+                        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+                        <button class="btn btn-primary" type="submit" data-submit-btn data-track="cta-submit-form">
+                            Enviar solicitud
+                        </button>
+                        <button class="btn btn-ghost" type="reset">Limpiar</button>
+
+                        <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-deco" aria-hidden="true"></div>
+            <div class="container footer-grid">
+                <div class="footer-brand-block">
+                    <a class="brand footer-brand" href="#inicio" aria-label="Volver al inicio">
+                        <img src="assets/img/Logo UVM.png" alt="Logo UVM" />
+                        <span>UVM</span>
+                    </a>
+                    <p>
+                        Universidad Valle del Momboy: formacion universitaria de calidad para
+                        liderar el futuro profesional de Venezuela.
+                    </p>
+                    <a class="btn btn-primary footer-btn" href="#contacto" data-track="cta-footer-principal">
+                        Hablar con admisiones
+                    </a>
+                </div>
+
+                <div class="footer-block">
+                    <h4>Explorar</h4>
+                    <ul class="footer-links">
+                        <li><a href="#valor">Propuesta de valor</a></li>
+                        <li><a href="#carreras">Carreras</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Preinscripcion</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-block">
+                    <h4>Contacto</h4>
+                    <p>+58 123 456 789</p>
+                    <p>admision@uvm.edu.ve</p>
+                    <p>Valera, Estado Trujillo</p>
+                </div>
+
+                <div class="footer-block">
+                    <h4>Admisiones</h4>
+                    <p>Lunes a viernes: 8:00 AM - 5:00 PM</p>
+                    <p>Atencion personalizada en menos de 24 horas</p>
+                    <div class="footer-socials" aria-label="Redes sociales UVM">
+                        <a href="#" aria-label="Instagram UVM">IG</a>
+                        <a href="#" aria-label="Facebook UVM">FB</a>
+                        <a href="#" aria-label="YouTube UVM">YT</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sección de Carreras -->
-<section id="cursos" class="contenedor-carreras">
-  <div class="contenedor">
-      <h2 class="titulo">Carreras que ofertamos</h2>
-      <div class="carrusel">
-          <!-- Carrera 1 -->
-          <div class="carrera activo">
-              <img src="assets/img/carrousel1.jpg" alt="Ingeniería en Computación" class="imagen-carrera">
-              <div class="info-carrera">
-                  <h3>Ingeniería en Computación</h3>
-                  <p>
-                      Desarrolla habilidades para diseñar software y sistemas tecnológicos, y conoce el futuro de la inteligencia artificial y la ciencia de datos. Ideal para quienes buscan innovar y transformar el mundo digital.
-                  </p>
-              </div>
-          </div>
-          <!-- Carrera 2 -->
-          <div class="carrera">
-              <img src="assets/img/carrousel2.jpg" alt="Derecho" class="imagen-carrera">
-              <div class="info-carrera">
-                  <h3>Derecho</h3>
-                  <p>
-                      Forma parte de una disciplina que regula la convivencia social y la justicia. Prepárate para ser un defensor de los derechos humanos, asesor legal o resolver conflictos en el ámbito jurídico.
-                  </p>
-              </div>
-          </div>
-          <!-- Carrera 3 -->
-          <div class="carrera">
-              <img src="assets/img/carrousel3.jpg" alt="Administración de Empresas" class="imagen-carrera">
-              <div class="info-carrera">
-                  <h3>Administración de Empresas</h3>
-                  <p>
-                      Aprende a dirigir y gestionar negocios exitosos, con una visión estratégica y habilidades de liderazgo. Ideal para quienes desean emprender o liderar empresas a nivel global.
-                  </p>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
-
-
-    <!-- Sección de Contacto -->
-    <section id="contacto" class="formulario">
-        <div class="contenedor-formulario">
-            <div class="registro-invitacion">
-                <h2>¡Regístrate Ahora!</h2>
-                <p>Completa el formulario y forma parte de la nuestra comunidad UVM.</p>
-            </div>
-            <div class="formulario-datos">
-                <h2>Formulario de datos</h2>
-                <form action="database.php" method="post">
-                    <label for="nombre">Nombre Completo:</label>
-                    <input type="text" name="nombre" id="nombre" required />
-                    <label for="correo">Correo Electrónico:</label>
-                    <input type="email" name="correo" id="correo" required />
-                    <label for="ciudad">Ciudad:</label>
-                    <input type="text" name="ciudad" id="ciudad" required />
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" name="telefono" id="telefono" required />
-                    <label for="comentarios">Comentarios:</label>
-                    <textarea name="comentarios" id="comentarios" rows="4"></textarea>
-                    <div class="botones">
-                        <button type="submit" name="enviar">Enviar Datos</button>
-                        <button type="reset">Borrar Datos</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="contenedor-footer">
-            <div class="contenido-footer">
-                <h4>TELÉFONO</h4>
-                <p>+58 123 456 789</p>
-            </div>
-            <div class="contenido-footer">
-                <h4>EMAIL</h4>
-                <p>correo@uvm.edu.ve</p>
-            </div>
-            <div class="contenido-footer">
-                <h4>LOCALIZACIÓN</h4>
-                <p>123 Universidad St, Ciudad Ficticia</p>
-            </div>
-        </div>
-        <h2 class="contacto">Contáctanos</h2>
-        <div class="redes-sociales">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-        </div>
-    </footer>
-
-    <!-- Script para el desplazamiento suave -->
-    <script>
-        // Obtener todos los enlaces con anclas en la barra de navegación
-        const enlaces = document.querySelectorAll('.barra-navegacion a[href^="#"]');
-
-        enlaces.forEach(enlace => {
-            enlace.addEventListener('click', function(event) {
-                event.preventDefault(); // Evitar el comportamiento por defecto
-                const id = this.getAttribute('href'); // Obtener el id del destino
-                const seccion = document.querySelector(id); // Obtener la sección correspondiente
-
-                // Desplazarse suavemente a la sección seleccionada
-                seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Script para el carrusel de carreras
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carrera');
-        const totalSlides = slides.length;
-        const carousel = document.querySelector('.carrusel');
-
-        function showSlide(index) {
-            if (index >= totalSlides) {
-                currentSlide = 0;
-            } else if (index < 0) {
-                currentSlide = totalSlides - 1;
-            } else {
-                currentSlide = index;
-            }
-
-            const offset = -currentSlide * 100;
-            carousel.style.transform = `translateX(${offset}%)`;
-        }
-
-        function changeSlide(direction) {
-            showSlide(currentSlide + direction);
-        }
-
-        const autoSlideInterval = setInterval(() => {
-            changeSlide(1);
-        }, 8000);
-
-        showSlide(currentSlide);
-    </script>
-</body>
+            <p class="footer-copy">UVM 2026. Todos los derechos reservados.</p>
+        </footer>
+    </body>
 </html>
